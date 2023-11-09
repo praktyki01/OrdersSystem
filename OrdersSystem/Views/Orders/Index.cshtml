@@ -9,6 +9,9 @@
 <p>
     <a asp-action="Create">Stwórz nowe</a>
 </p>
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +46,11 @@
                 @Html.DisplayFor(modelItem => item.Shipper.ShipperName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detale</a> |
+                <a asp-action="IndexOrders" asp-controller="OrderDetails" asp-route-id="@item.Id">Szczegóły zamówienia</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> 
+                <a asp-action="Details" asp-route-id="@item.Id">Detale</a> 
                 <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+
             </td>
         </tr>
 }
