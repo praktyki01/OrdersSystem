@@ -69,9 +69,9 @@ namespace OrdersSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "Id", "Id", order.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Id", order.EmployeeId);
-            ViewData["ShipperId"] = new SelectList(_context.Shipper, "Id", "Id", order.ShipperId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "Id", "CustomerName", order.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "LastName", order.EmployeeId);
+            ViewData["ShipperId"] = new SelectList(_context.Shipper, "Id", "ShipperName", order.ShipperId);
             return View(order);
         }
 
@@ -88,9 +88,9 @@ namespace OrdersSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "Id", "Id", order.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Id", order.EmployeeId);
-            ViewData["ShipperId"] = new SelectList(_context.Shipper, "Id", "Id", order.ShipperId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "Id", "CustomerName", order.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "LastName", order.EmployeeId);
+            ViewData["ShipperId"] = new SelectList(_context.Shipper, "Id", "ShipperName", order.ShipperId);
             return View(order);
         }
 
@@ -126,9 +126,9 @@ namespace OrdersSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customer, "Id", "Id", order.CustomerId);
-            ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "Id", order.EmployeeId);
-            ViewData["ShipperId"] = new SelectList(_context.Shipper, "Id", "Id", order.ShipperId);
+            ViewData["CustomerId"] = new SelectList(_context.Customer, "Id", "CustomerName", order.CustomerId);
+            ViewData["EmployeeId"] = new SelectList(_context.Employee, "Id", "LastName", order.EmployeeId);
+            ViewData["ShipperId"] = new SelectList(_context.Shipper, "Id", "ShipperName", order.ShipperId);
             return View(order);
         }
 

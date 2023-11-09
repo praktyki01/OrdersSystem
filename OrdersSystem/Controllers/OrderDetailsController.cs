@@ -49,8 +49,8 @@ namespace OrdersSystem.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id");
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Id");
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderDate");
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "ProductName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace OrdersSystem.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id", orderDetail.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Id", orderDetail.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderDate", orderDetail.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "ProductName", orderDetail.ProductId);
             return View(orderDetail);
         }
 
@@ -85,8 +85,8 @@ namespace OrdersSystem.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id", orderDetail.OrderId);
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Id", orderDetail.ProductId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderDate", orderDetail.OrderId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "ProductName", orderDetail.ProductId);
             return View(orderDetail);
         }
 
