@@ -28,7 +28,9 @@ namespace OrdersSystem.Controllers
         public async Task<IActionResult> IndexOrders(int? id)
         {
             var applicationDbContext = _context.OrderDetail.Include(o => o.Order).
-                Include(o => o.Product).Where(o => o.OrderId == id);
+                Include(o => o.Product).Include(o => o.Order.Customer)
+                .Include(o => o.Order.Shipper).Include(o => o.Order.Employee)
+                .Where(o => o.OrderId == id);
             return View(await applicationDbContext.ToListAsync());
         }
 

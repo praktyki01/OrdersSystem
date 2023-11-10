@@ -10,7 +10,17 @@
     <a asp-action="Create">Utwórz nowe</a>
 </p>
 
-<h2>  </h2>
+<h4>Pracownik:</h4>
+<h2>@Model.FirstOrDefault().Order.Employee.FirstName
+    @Model.FirstOrDefault().Order.Employee.LastName
+</h2>
+<img style="width:20%"src="@Model.FirstOrDefault().Order.Employee.Photo">
+<h4>Klient:</h4>
+<h2> @Model.FirstOrDefault().Order.Customer.CustomerName 
+    <br> @Model.FirstOrDefault().Order.Customer.City
+</h2>
+<h4>Kurier:</h4>
+<h2> @Model.FirstOrDefault().Order.Shipper.ShipperName </h2>
 
 <table class="table">
     <thead>
