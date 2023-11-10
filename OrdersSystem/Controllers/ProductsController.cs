@@ -26,6 +26,34 @@ namespace OrdersSystem.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> IndexMniejsze50()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category)
+                .Include(p => p.Supplier).Where(p => p.Price < 50);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> IndexWieksze100()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category)
+                .Include(p => p.Supplier).Where(p => p.Price > 100);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> IndexKategoria()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category)
+                .Include(p => p.Supplier).Where(p => p.Category.CategoryName == "Buty");
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> IndexDostawca()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category)
+                .Include(p => p.Supplier).Where(p => p.Supplier.SupplierName == "Dawid Nosal");
+            return View(await applicationDbContext.ToListAsync());
+        }
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
